@@ -10,44 +10,44 @@ function playRound(playerSelection, computerSelection)
   if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors")
   {
     playerScore ++;
-    return "You win! Rock beats scissors";
+    console.log("You win! Rock beats scissors");
   }
   else if(playerSelection.toLowerCase() === "rock" && computerSelection === "paper")
   {
     computerScore++;
-    return "You lose! Paper beats rock";
+    console.log("You lose! Paper beats rock");
   }
   else if(playerSelection.toLowerCase() === "rock" && computerSelection === "rock")
   {
-    return "It's a draw! Rock ties rock";
+    console.log("It's a draw! Rock ties rock");
   }
   else if(playerSelection.toLowerCase() === "paper" && computerSelection === "rock")
   {
     playerScore++;
-    return "You win! Paper beats rock";
+    console.log("You win! Paper beats rock");
   }
   else if(playerSelection.toLowerCase() === "paper" && computerSelection === "scissors")
   {
     computerScore++;
-    return "You lose! Scissors beats paper";
+    console.log("You lose! Scissors beats paper");
   }
   else if(playerSelection.toLowerCase() === "paper" && computerSelection === "paper")
   {
-    return "It's a draw! Paper ties paper";
+    console.log("It's a draw! Paper ties paper");
   }
   else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "paper")
   {
     playerScore++;
-    return "You win! Scissors beats paper";
+    console.log("You win! Scissors beats paper");
   }
   else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "rock")
   {
     computerScore++;
-    return "You lose! Rock beats scissors";
+    console.log("You lose! Rock beats scissors");
   }
   else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "scissors")
   {
-    return "It's a draw! Scissors ties scissors";
+    console.log("It's a draw! Scissors ties scissors");
   }
 }
 
@@ -58,8 +58,22 @@ function game()
   while ((playerScore + computerScore) < 5)
   {
     let playerSelection = prompt("Please enter your selection");
+    while(playerSelection.toLowerCase() !== "rock" && playerSelection.toLowerCase() !== "paper" && playerSelection.toLowerCase() !== "scissors")
+    {
+      console.log('Please choose a valid choice between "rock", "paper", or "scissors"' );
+      playerSelection = prompt("Please enter your selection");
+    }
     let computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
+  }
+
+  if (playerScore > computerScore)
+  {
+    console.log("You win!");
+  }
+  else
+  {
+    console.log("You lose :(");
   }
 }
 
