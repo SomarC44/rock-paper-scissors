@@ -69,11 +69,11 @@ function game()
 
   if (playerScore > computerScore)
   {
-    console.log("You win!");
+    return "You win!";
   }
   else
   {
-    console.log("You lose :(");
+    return "You lose :(";
   }
 }
 
